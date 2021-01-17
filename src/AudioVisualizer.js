@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import AudioButton from "./AudioButton.js";
+import AudioController from "./AudioController.js";
 import RecordButton from "./RecordButton.js"
 import Wave from "@foobar404/wave";
 import "./AudioVisualizer.css";
@@ -11,7 +11,7 @@ const AudioVisualizer = () => {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    wave.fromElement("audio", "canvas", {
+    wave.fromElement("audioPlayer", "canvas", {
       type: "dualbars",
       colors: ["crimson", "orange", "yellow", "lawngreen", "mediumturquoise", "dodgerblue", "mediumpurple"],
       stroke: 5
@@ -21,8 +21,10 @@ const AudioVisualizer = () => {
   return(
     <div id="audioVisualizerContainer">
       <canvas id="canvas" ref={canvasRef} height="720px" width="1280px" />
-      <AudioButton ref={audioRef} />
-      <RecordButton canvasRef={canvasRef} audioRef={audioRef} />
+      <div id="buttonContainer">
+        <AudioController ref={audioRef} />
+        <RecordButton canvasRef={canvasRef} audioRef={audioRef} />
+      </div>
     </div>
   );
 }

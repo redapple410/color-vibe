@@ -1,3 +1,12 @@
+#recordButtonContainer {
+  display: inline-block;
+  float: right;
+}
+
+.recordingButton {
+  font-size: 12pt;
+}
+
 .recordingButton:disabled {
   opacity: 0.7;
   cursor: not-allowed;
