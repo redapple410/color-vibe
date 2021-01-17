@@ -20,6 +20,7 @@
   border-style: solid;
   border-width: 2px;
   border-color: #efefef;
+  border-radius: 4px;
 
   background-color: darkslateblue;
 
@@ -33,13 +34,10 @@
   height: 40px;
 }
 
-#waveTypeMenuButton {
-  border-radius: 4px;
-}
-
 .waveTypeMenuItem {
   border-top-width: 1px;
   border-bottom-width: 1px;
+  border-radius: 0px;
 
   background-color: mediumslateblue;
 

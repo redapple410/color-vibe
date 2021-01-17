@@ -44,7 +44,7 @@ const RecordButton = (props) => {
     if(file){
       let url = window.URL.createObjectURL(file);
       downloadRef.current.href = url;
-      downloadRef.current.setAttribute("download", `${uniqidtime("visuals-")}.mp4`);
+      downloadRef.current.setAttribute("download", `${uniqidtime("visuals-")}.webm`);
       downloadRef.current.click();
     }
   }, [props.audioRef]);
