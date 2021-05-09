@@ -1,16 +1,42 @@
+* {
+  font-family: "Lato", sans-serif;
+}
+
 body {
   background-color: #0f0f0f;
   color: #9f9f9f;
+  margin: 0;
 }
 
 #buttonContainer {
   background-color: darkslateblue;
+  z-index: 10;
 
-  padding: 8px;
-  padding-bottom: 4px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-around;
 
-  position: fixed;
-  top: 0px;
-  left: 0px;
+  padding: 0.5rem;
+
+  position: sticky;
+  top: 0;
+  left: 0;
   width: stretch;
+}
+
+.button {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 0.15rem;
+
+  cursor: pointer;
+
+  padding: 0.25rem 0.5rem;
+}
+
+.button:hover {
+  background-color: #dad4ff;
 }

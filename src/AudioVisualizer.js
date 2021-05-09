@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import WaveTypeMenu from "./WaveTypeMenu.js";
 import Wave from "@foobar404/wave";
 import "./AudioVisualizer.css";
@@ -10,12 +10,20 @@ const AudioVisualizer = React.forwardRef((props, canvasRef) => {
   useEffect(() => {
     wave.fromElement("audioPlayer", "canvas", {
       type: waveType,
-      colors: ["crimson", "orange", "yellow", "lawngreen", "mediumturquoise", "dodgerblue", "mediumpurple"],
-      stroke: 4
+      colors: [
+        "crimson",
+        "orange",
+        "yellow",
+        "lawngreen",
+        "mediumturquoise",
+        "dodgerblue",
+        "mediumpurple",
+      ],
+      stroke: 4,
     });
   }, [waveType, wave]);
 
-  return(
+  return (
     <div>
       <canvas id="canvas" ref={canvasRef} height="720px" width="1280px" />
       <WaveTypeMenu setWaveType={setWaveType} />

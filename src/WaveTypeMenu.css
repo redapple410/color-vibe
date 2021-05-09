@@ -1,50 +1,58 @@
 #waveTypeMenuContainer {
   position: fixed;
-  bottom: 0px;
-  right: 0px;
-
-  margin: 8px;
+  bottom: 0.5rem;
+  right: 0.45rem;
 
   height: auto;
   width: auto;
 }
 
 #waveTypeMenu {
-  display: block;
-
-  max-height: calc(100vh - 130px);
+  max-height: calc(100vh - 16rem);
   overflow: auto;
 }
 
-#waveTypeMenuButton, .waveTypeMenuItem {
+#waveTypeMenuButton,
+.waveTypeMenuItem {
+  user-select: none;
+  cursor: pointer;
+
   border-style: solid;
-  border-width: 2px;
+  border-width: 0.15rem;
   border-color: #efefef;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 
   background-color: darkslateblue;
 
   text-align: center;
   color: #efefef;
-  font-size: 12pt;
+  font-size: 1rem;
 
-  padding: 10px;
+  padding: 0.6rem;
 
-  width: 75px;
-  height: 40px;
+  width: 4.75rem;
+  height: 2.25rem;
+}
+
+#waveTypeMenuButton {
+  margin-right: 0.05rem;
+}
+
+#waveTypeMenuButton:hover {
+  background-color: mediumslateblue;
 }
 
 .waveTypeMenuItem {
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-radius: 0px;
+  border-top-width: 0.05rem;
+  border-bottom-width: 0.05rem;
+  border-radius: 0;
 
   background-color: mediumslateblue;
 
-  font-size: 12pt;
-
-  padding: 3px;
-
-  width: 78px;
+  padding: 0.25rem;
   height: auto;
+}
+
+.waveTypeMenuItem:hover {
+  background-color: #8470ff;
 }

@@ -15,22 +15,25 @@ const RecordButton = (props) => {
     stopButtonRef.current.disabled = true;
   });
 
-  const startRecording = useCallback((e, s) => {
-    if(s === "beginning"){
-      props.audioRef.current.load();
-    }
+  const startRecording = useCallback(
+    (e, s) => {
+      if (s === "beginning") {
+        props.audioRef.current.load();
+      }
 
-    startButtonBeginningRef.current.disabled = true;
-    startButtonCurrentRef.current.disabled = true;
-    stopButtonRef.current.disabled = false;
+      startButtonBeginningRef.current.disabled = true;
+      startButtonCurrentRef.current.disabled = true;
+      stopButtonRef.current.disabled = false;
 
-    recorder.createStream(props.canvasRef.current);
-    recorder.start();
+      recorder.createStream(props.canvasRef.current);
+      recorder.start();
 
-    if(s === "beginning"){
-      props.audioRef.current.play();
-    }
-  }, [props.audioRef, props.canvasRef]);
+      if (s === "beginning") {
+        props.audioRef.current.play();
+      }
+    },
+    [props.audioRef, props.canvasRef]
+  );
 
   const stopRecording = useCallback(() => {
     props.audioRef.current.pause();
@@ -41,29 +44,51 @@ const RecordButton = (props) => {
     stopButtonRef.current.disabled = true;
 
     let file = recorder.save();
-    if(file){
+    if (file) {
       let url = window.URL.createObjectURL(file);
       downloadRef.current.href = url;
-      downloadRef.current.setAttribute("download", `${uniqidtime("visuals-")}.webm`);
+      downloadRef.current.setAttribute(
+        "download",
+        `${uniqidtime("visuals-")}.webm`
+      );
       downloadRef.current.click();
     }
   }, [props.audioRef]);
 
-  return(
+  return (
     <div id="recordButtonContainer">
-      <button className="recordingButton" ref={startButtonBeginningRef} type="button" onClick={(e) => {startRecording(e, "beginning")}}>
+      <button
+        className="button recordingButton"
+        ref={startButtonBeginningRef}
+        type="button"
+        onClick={(e) => {
+          startRecording(e, "beginning");
+        }}
+      >
         Start Recording From Beginning
       </button>
-      <button className="recordingButton" ref={startButtonCurrentRef} type="button" onClick={(e) => {startRecording(e, "current")}}>
+      <button
+        className="button recordingButton"
+        ref={startButtonCurrentRef}
+        type="button"
+        onClick={(e) => {
+          startRecording(e, "current");
+        }}
+      >
         Start Recording From Current State
       </button>
-      <button className="recordingButton" ref={stopButtonRef} type="button" onClick={stopRecording}>
+      <button
+        className="button recordingButton"
+        ref={stopButtonRef}
+        type="button"
+        onClick={stopRecording}
+      >
         Stop Recording
       </button>
       {/*eslint-disable-next-line*/}
       <a hidden href="#" ref={downloadRef} />
     </div>
   );
-}
+};
 
 export default RecordButton;

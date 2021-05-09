@@ -6,11 +6,11 @@ const WaveTypeMenuItem = (props) => {
     props.setWaveType(props.type);
   };
 
-  return(
-    <div className="waveTypeMenuItem" onClick={handleClick} >
+  return (
+    <div className="waveTypeMenuItem" onClick={handleClick}>
       {props.type}
     </div>
   );
-}
+};
 
 export default WaveTypeMenuItem;
